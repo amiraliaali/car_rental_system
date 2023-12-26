@@ -13,7 +13,8 @@ CAR_RENTAL::CarRental::CarRental(std::string car_data_set_file_path) {
 }
 
 CAR_RENTAL::CarRental::~CarRental() {
-  std::cout << "CarRental destructor called" << std::endl;
+  SaveCarDataSet();
+  std::cout << "Saved the car data set to the file and exit." << std::endl;
 }
 
 void CAR_RENTAL::CarRental::ReadCarDataSet() {
@@ -255,4 +256,28 @@ void CAR_RENTAL::CarRental::RemoveCar(int car_id) {
       std::remove_if(car_data_set_.begin(), car_data_set_.end(),
                      [car_id](CAR_RENTAL::Car car) { return car.GetId() == car_id; }),
       car_data_set_.end());
+}
+
+void CAR_RENTAL::CarRental::SaveCarDataSet() {
+  std::ofstream file(car_data_set_file_path_);
+
+  // Check if the file is open
+  if (!file.is_open()) {
+    std::cerr << "Error opening the file!" << std::endl;
+    exit(1);
+  }
+
+  // print the column headers in one line
+  file << "id;type;manufacturer;model;year;color;mileage;price_per_day;last_rented;is_available;renter_id" << std::endl;
+
+  for (CAR_RENTAL::Car car : car_data_set_) {
+    file << car.GetId() << ";" << car.GetType() << ";" << car.GetManufacturer()
+         << ";" << car.GetModel() << ";" << car.GetYear() << ";"
+         << car.GetColor() << ";" << car.GetMileage() << ";"
+         << car.GetPricePerDay() << ";" << car.GetLastRented() << ";"
+         << car.GetIsAvailable() << ";" << car.GetRenterId() << std::endl;
+  }
+
+  // Close the file
+  file.close();
 }

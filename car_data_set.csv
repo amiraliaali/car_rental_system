@@ -1,4 +1,4 @@
-ID;Type;Manufacture;Model;Year;Color;Mileage(km);PPD;lastRenting;currentlyAvailable;RenterID
+id;type;manufacturer;model;year;color;mileage;price_per_day;last_rented;is_available;renter_id
 1000;Coupe;Porsche;911;2021;Black;2100;85;27.8.2023;0;2000
 1001;Convertible;Porsche;718;2020;Red;53000;65;30.6.2022;0;2001
 1002;Sedan;BMW;3 Series;2019;White;45000;60;15.4.2022;1;0

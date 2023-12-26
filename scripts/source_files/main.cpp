@@ -55,7 +55,6 @@ void PrintCarDataSet(CAR_RENTAL::CarRental &car_rental) {
 
 void Exit() {
   std::cout << "Thank you for using the Car Rental System!" << std::endl;
-  exit(0);
 }
 
 void AddCar(CAR_RENTAL::CarRental &car_rental) {
@@ -110,7 +109,7 @@ int main(int argc, char *argv[]) {
   int choice{0};
   CAR_RENTAL::CarRental car_rental(argv[1]);
   std::cout << "Welcome to the Car Rental System!" << std::endl;
-  while (choice != 6) {
+  while (choice != 8) {
     PrintMenu();
     std::cout << "Please enter your choice: ";
     std::cin >> choice;
