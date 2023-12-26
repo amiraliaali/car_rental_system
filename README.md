@@ -22,7 +22,7 @@ Following is a screen-shot of the dataset.
 </p>
 
 ## Output Example
-Following you can find a screen-shot of a test output.
+Following you can find a screen-shot of a test output where we filter out the table.
 <p float="left">
   <img src="readme_images/Output_Example.PNG" width="700" />
 </p>
