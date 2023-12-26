@@ -8,6 +8,7 @@
             "args": [
                 "${workspaceFolder}/scripts/source_files/main.cpp",
                 "${workspaceFolder}/scripts/source_files/car_rental.cpp",
+                "${workspaceFolder}/scripts/source_files/car.cpp",
                 "-o",
                 "${workspaceFolder}/scripts/build_files/main"
             ],
