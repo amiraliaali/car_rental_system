@@ -2,6 +2,7 @@
 #include <algorithm> // for std::transform
 #include <cctype>    // for std::tolower
 #include <fstream>
+#include <iomanip> // for std::setw
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -42,7 +43,7 @@ void CAR_RENTAL::CarRental::ReadCarDataSet() {
     }
 
     if (array_pos != 11) {
-      std::cerr << "A line in the file doesn't have 10 values!" << std::endl;
+      std::cerr << "A line in the file doesn't have 11 values!" << std::endl;
       exit(1);
     }
 
@@ -72,20 +73,29 @@ void CAR_RENTAL::CarRental::PrintCarDataSet() {
   } else {
     dataset_to_print = filtered_car_data_set_;
   }
+  // print the column headers in one line
+  std::cout << std::setw(5) << "id"
+            << "\t" << std::setw(10) << "type"
+            << "\t" << std::setw(15) << "manufacturer"
+            << "\t" << std::setw(15) << "model"
+            << "\t" << std::setw(5) << "year"
+            << "\t" << std::setw(10) << "color"
+            << "\t" << std::setw(8) << "mileage"
+            << "\t" << std::setw(10) << "price_per_day"
+            << "\t" << std::setw(12) << "last_rented"
+            << "\t" << std::setw(12) << "is_available"
+            << "\t" << std::setw(8) << "renter_id" << std::endl;
+
   for (CAR_RENTAL::Car car : dataset_to_print) {
-    std::cout << "id: \t\t" << car.GetId() << std::endl;
-    std::cout << "type: \t\t" << car.GetType() << std::endl;
-    std::cout << "manufacturer: \t" << car.GetManufacturer() << std::endl;
-    std::cout << "model: \t\t" << car.GetModel() << std::endl;
-    std::cout << "year: \t\t" << car.GetYear() << std::endl;
-    std::cout << "color: \t\t" << car.GetColor() << std::endl;
-    std::cout << "mileage: \t" << car.GetMileage() << std::endl;
-    std::cout << "price_per_day: \t" << car.GetPricePerDay() << std::endl;
-    std::cout << "last_rented: \t" << car.GetLastRented() << std::endl;
-    std::cout << "is_available: \t" << car.GetIsAvailable() << std::endl;
-    std::cout << "renter_id: \t" << car.GetRenterId() << std::endl;
-    std::cout << "---------------------------------" << std::endl;
-    std::cout << std::endl;
+    std::cout << std::setw(5) << car.GetId() << "\t" << std::setw(10)
+              << car.GetType() << "\t" << std::setw(15) << car.GetManufacturer()
+              << "\t" << std::setw(15) << car.GetModel() << "\t" << std::setw(5)
+              << car.GetYear() << "\t" << std::setw(10) << car.GetColor()
+              << "\t" << std::setw(8) << car.GetMileage() << "\t"
+              << std::setw(10) << car.GetPricePerDay() << "\t" << std::setw(12)
+              << car.GetLastRented() << "\t" << std::setw(12)
+              << car.GetIsAvailable() << "\t" << std::setw(8)
+              << car.GetRenterId() << std::endl;
   }
 }
 
