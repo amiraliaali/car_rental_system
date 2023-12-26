@@ -1,0 +1,37 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build car_rental",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${workspaceFolder}/scripts/source_files/main.cpp",
+                "${workspaceFolder}/scripts/source_files/car_rental.cpp",
+                "-o",
+                "${workspaceFolder}/scripts/build_files/main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+        },
+        {
+            "label": "run car_rental",
+            "type": "shell",
+            "command": "${workspaceFolder}/scripts/build_files/main",
+            "args": [
+                "${workspaceFolder}/car_data_set.csv",
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            }
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+ID;Type;Manufacture;Model;Year;Color;Mileage(km);PPD;lastRenting;currentlyAvailable;RenterID
+1000;Coupe;Porsche;911;2021;Black;2100;85;27.8.2023;0;2000
+1001;Convertible;Porsche;718;2020;Red;53000;65;30.6.2022;0;2001
+1002;Sedan;BMW;3 Series;2019;White;45000;60;15.4.2022;1;0
+1003;SUV;BMW;X5;2020;Blue;25000;80;10.9.2023;0;2003
+1004;Convertible;BMW;Z4;2018;Silver;35000;70;5.12.2021;1;0
+1005;Sedan;Mercedes-Benz;C-Class;2021;Gray;1500;75;20.7.2023;0;2005
+1006;SUV;Mercedes-Benz;GLE;2019;Black;40000;90;12.11.2022;1;0
+1007;Coupe;Mercedes-Benz;AMG GT;2020;Red;18000;100;8.3.2022;0;2007
+1008;Coupe;Porsche;Cayman;2017;Yellow;60000;75;3.6.2021;1;0
+1009;SUV;Porsche;Macan;2021;Green;5000;95;18.9.2023;0;2009
