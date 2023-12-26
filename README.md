@@ -16,8 +16,19 @@ In addition to these modifications, the system provides the ability to:
 - Apply filters based on car types, manufacturers, models, mileage, and other criteria.
 
 ## The Dataset
-Following is a screen shot of the dataset.
-<p float="center">
-  <img src="readme_images/Table.PNG" width="600" />
+Following is a screen-shot of the dataset.
+<p float="left">
+  <img src="readme_images/Table.PNG" width="700" />
 </p>
 
+## Output Example
+Following you can find a screen-shot of a test output.
+<p float="left">
+  <img src="readme_images/Output_Example.PNG" width="700" />
+</p>
+
+## Folder Structure
+- `car_data_set.csv`: The dataset of the cars.
+- `scripts/source_files`: Here we can find all the .cpp scripts.
+- `scripts/header_files`: Here we can find all the header files.
+- `scripts/build_files`: Here the build-file of the main is to be found.
