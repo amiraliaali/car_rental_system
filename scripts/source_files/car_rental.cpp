@@ -231,3 +231,28 @@ void CAR_RENTAL::CarRental::ReturnCar(int car_id) {
     }
   }
 }
+
+void CAR_RENTAL::CarRental::AddCar(CAR_RENTAL::Car car) {
+  car_data_set_.push_back(car);
+}
+
+void CAR_RENTAL::CarRental::RemoveCar(int car_id) {
+  bool car_found = false;
+  // Check if the car exists
+  for (CAR_RENTAL::Car car : car_data_set_) {
+    if (car.GetId() == car_id) {
+      car_found = true;
+    }
+  }
+
+  if (car_found == false) {
+    std::cerr << "A car with the given id doesn't exist!" << std::endl;
+    exit(1);
+  }
+
+  // Remove the car from the car data set
+  car_data_set_.erase(
+      std::remove_if(car_data_set_.begin(), car_data_set_.end(),
+                     [car_id](CAR_RENTAL::Car car) { return car.GetId() == car_id; }),
+      car_data_set_.end());
+}

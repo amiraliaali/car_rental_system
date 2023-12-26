@@ -25,5 +25,9 @@ public:
   void RentCar(int car_id, int renter_id);
 
   void ReturnCar(int car_id);
+
+  void AddCar(CAR_RENTAL::Car car);
+
+  void RemoveCar(int car_id);
 };
 } // namespace CAR_RENTAL
