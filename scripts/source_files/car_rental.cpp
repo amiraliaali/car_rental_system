@@ -59,6 +59,11 @@ void CAR_RENTAL::CarRental::ReadCarDataSet() {
   file.close();
 }
 
+void Lower(std::string &str) {
+  std::transform(str.begin(), str.end(), str.begin(),
+                 [](unsigned char c) { return std::tolower(c); });
+}
+
 void CAR_RENTAL::CarRental::PrintCarDataSet() {
   std::vector<CAR_RENTAL::Car> dataset_to_print;
   // Check if the filtered car data set is empty
@@ -88,6 +93,8 @@ void CAR_RENTAL::CarRental::FilterCarDataSet(std::string filter_type,
                                              std::string filter_value) {
   std::transform(filter_type.begin(), filter_type.end(), filter_type.begin(),
                  [](unsigned char c) { return std::tolower(c); });
+  std::transform(filter_value.begin(), filter_value.end(), filter_value.begin(),
+                 [](unsigned char c) { return std::tolower(c); });
 
   std::vector<CAR_RENTAL::Car> dataset_to_filter;
   // Check if the filtered car data set is empty
@@ -101,20 +108,27 @@ void CAR_RENTAL::CarRental::FilterCarDataSet(std::string filter_type,
   filtered_car_data_set_.clear();
 
   for (CAR_RENTAL::Car car : dataset_to_filter) {
+    std::string str_filter_value{""};
     if (filter_type == "id") {
       if (car.GetId() == std::stoi(filter_value)) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "type") {
-      if (car.GetType() == filter_value) {
+      str_filter_value = car.GetType();
+      Lower(str_filter_value);
+      if (str_filter_value == filter_value) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "manufacturer") {
-      if (car.GetManufacturer() == filter_value) {
+      str_filter_value = car.GetManufacturer();
+      Lower(str_filter_value);
+      if (str_filter_value == filter_value) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "model") {
-      if (car.GetModel() == filter_value) {
+      str_filter_value = car.GetModel();
+      Lower(str_filter_value);
+      if (str_filter_value == filter_value) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "year") {
@@ -122,7 +136,9 @@ void CAR_RENTAL::CarRental::FilterCarDataSet(std::string filter_type,
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "color") {
-      if (car.GetColor() == filter_value) {
+      str_filter_value = car.GetColor();
+      Lower(str_filter_value);
+      if (str_filter_value == filter_value) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "mileage") {
@@ -134,7 +150,9 @@ void CAR_RENTAL::CarRental::FilterCarDataSet(std::string filter_type,
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "last_rented") {
-      if (car.GetLastRented() == filter_value) {
+      str_filter_value = car.GetLastRented();
+      Lower(str_filter_value);
+      if (str_filter_value == filter_value) {
         filtered_car_data_set_.push_back(car);
       }
     } else if (filter_type == "is_available") {
@@ -146,14 +164,14 @@ void CAR_RENTAL::CarRental::FilterCarDataSet(std::string filter_type,
         filtered_car_data_set_.push_back(car);
       }
     } else {
-      std::cerr << "Invalid filter type!" << std::endl;
+      std::cerr << "The filter type is not valid!" << std::endl;
+      exit(1);
     }
   }
 }
 
 void CAR_RENTAL::CarRental::ResetFilteredCarDataSet() {
   filtered_car_data_set_.clear();
-  std::cout << "Filtered car data set has been reset!" << std::endl;
 }
 
 void CAR_RENTAL::CarRental::RentCar(int car_id, int renter_id) {
