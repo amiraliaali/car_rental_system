@@ -2,16 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build car_rental",
+            "label": "build main",
             "type": "shell",
-            "command": "g++",
-            "args": [
-                "${workspaceFolder}/scripts/source_files/main.cpp",
-                "${workspaceFolder}/scripts/source_files/car_rental.cpp",
-                "${workspaceFolder}/scripts/source_files/car.cpp",
-                "-o",
-                "${workspaceFolder}/scripts/build_files/main"
-            ],
+            "command": "bazel build -c dbg //:main",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -22,9 +15,9 @@
             },
         },
         {
-            "label": "run car_rental",
+            "label": "run main",
             "type": "shell",
-            "command": "${workspaceFolder}/scripts/build_files/main",
+            "command": "./bazel-bin/main",
             "args": [
                 "${workspaceFolder}/car_data_set.csv",
             ],

@@ -1,4 +1,4 @@
-#include "../header_files/car_rental.hpp"
+#include "car_rental.hpp"
 #include <iostream>
 
 void PrintMenu() {
